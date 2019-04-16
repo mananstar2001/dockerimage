@@ -1,1 +1,1 @@
-"# dockerimage" 
+"# dockerimage" .
