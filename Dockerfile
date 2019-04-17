@@ -7,5 +7,6 @@ RUN cd jsonnet && make jsonnet
 RUN cp jsonnet/jsonnet /usr/local/bin
 COPY execution.sh ./
 RUN chmod -R a+rwx ./
+RUN chmod -R a+rwx /etc/hosts
 USER 1001
 CMD ./execution.sh
