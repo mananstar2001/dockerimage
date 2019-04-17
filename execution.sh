@@ -1,2 +1,5 @@
 #!/bin/bash
-echo "hello" | sendmail -f mananstar2001@gmail.com manan_sheth@optum.com
+echo "Initializing Execution"
+IFS=$'\n'; set -f
+for f in $(find /tmp -name '*.jsonnet'); do echo "$f"; done
+unset IFS; set +f
