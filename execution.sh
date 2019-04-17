@@ -6,9 +6,10 @@ IFS=$'\n'; set -f
 for filePath in $(find /tmp/templates -name '*.jsonnet'); do 
 	echo "Processing $filePath"
 	jsonFile=${filePath/templates/$jsonFolder}
+	mkdir -p "$(dirname "$jsonFile")" && touch "$jsonFile"
 	jsonnet -J /tmp/jsonnet ${filePath} > ${jsonFile}
 	echo "done json conversion at ${jsonFile}"
-	if[ -f $jsonFile ] 
+	if [ -f $jsonFile ] 
 		echo "${filePath/templates/$jsonFolder} exists"
 	done
 unset IFS; set +f
