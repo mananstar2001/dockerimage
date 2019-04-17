@@ -1,0 +1,32 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: jsonnet-image
+  labels:
+    app: jsonnet-image
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: jsonnet-image
+  template:
+    metadata:
+      labels:
+        name: jsonnet-image
+        app: jsonnet-image
+    spec:
+      hostname: jsonnet
+      securityContext:
+        runAsUser: 1000
+        fsGroup: 1000
+      containers:
+      - name: jsonnet-image
+        image: "manansheth/dockerimage"
+        imagePullPolicy: IfNotPresent
+        resources:
+          limits:
+            cpu: 2
+            memory: 2048Mi
+          requests:
+            cpu: 2
+            memory: 2048Mi
