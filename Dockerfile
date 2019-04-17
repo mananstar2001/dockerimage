@@ -7,6 +7,7 @@ RUN cd jsonnet && make jsonnet
 RUN cp jsonnet/jsonnet /usr/local/bin
 COPY execution.sh ./
 COPY templates ./templates
+RUN mkdir json
 RUN chmod -R a+rwx ./
 USER 1001
 CMD ["sh", "execution.sh"]
