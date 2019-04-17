@@ -1,4 +1,4 @@
-FROM themoroccan09/alpine-sendmail
+FROM relaxart/docker-sendmail
 
 RUN apk update && apk add git build-base
 WORKDIR /tmp
