@@ -1,6 +1,7 @@
 FROM relaxart/docker-sendmail
 
-RUN apk update && apk add git build-base
+RUN apt-get install git
+RUN apt-get install build-essentials
 WORKDIR /tmp
 RUN git clone https://github.com/google/jsonnet.git
 RUN cd jsonnet && make jsonnet
