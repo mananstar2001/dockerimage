@@ -9,10 +9,12 @@ for filePath in $(find /tmp/templates -name '*.jsonnet'); do
 	jsonFile=${jsonFolder/jsonnet/$json}
 	echo "jsonFile $jsonFile"
 	mkdir -p "$(dirname "$jsonFile")" && touch "$jsonFile"
-	jsonnet -J /tmp/jsonnet "${filePath}" > "${jsonFile}"
+	jsonnet -J /tmp/grafonnet-lib "${filePath}" > "${jsonFile}"
 	echo "done json conversion at ${jsonFile}"
 	if [ -f "$jsonFile" ] ; then
-		echo "$jsonFile exists"
+		echo "$jsonFile exists-------------------"
+		cat "$jsonFile" | xargs echo
+		echo "------end of file------"
 	fi
 done
 unset IFS; set +f

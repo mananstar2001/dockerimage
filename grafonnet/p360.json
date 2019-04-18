@@ -1,0 +1,273 @@
+{
+   "__inputs": [ ],
+   "__requires": [ ],
+   "annotations": {
+      "list": [
+         {
+            "datasource": "-- Grafana --",
+            "enable": true,
+            "hide": true,
+            "iconColor": "rgba(255, 96, 96, 1)",
+            "name": "Annotations & Alerts",
+            "showIn": 0,
+            "tags": [
+               "dashboard"
+            ],
+            "type": "dashboard"
+         }
+      ]
+   },
+   "description": "kalai_dashboard_codify_testrun_03",
+   "editable": true,
+   "gnetId": null,
+   "graphTooltip": 0,
+   "hideControls": false,
+   "id": 585,
+   "links": [ ],
+   "panels": [
+      {
+         "cacheTimeout": null,
+         "colorBackground": false,
+         "colorValue": false,
+         "colors": [
+            "#299c46",
+            "rgba(237, 129, 40, 0.89)",
+            "#d44a3a"
+         ],
+         "datasource": "P360ProdELRCore Prom",
+         "format": "s",
+         "gauge": {
+            "maxValue": 100,
+            "minValue": 0,
+            "show": false,
+            "thresholdLabels": false,
+            "thresholdMarkers": true
+         },
+         "gridPos": {
+            "h": 4,
+            "w": 20,
+            "x": 0,
+            "y": 0
+         },
+         "id": 2,
+         "interval": null,
+         "links": [ ],
+         "mappingType": 1,
+         "mappingTypes": [
+            {
+               "name": "value to text",
+               "value": 1
+            },
+            {
+               "name": "range to text",
+               "value": 2
+            }
+         ],
+         "maxDataPoints": 100,
+         "nullPointMode": "connected",
+         "nullText": null,
+         "postfix": "",
+         "postfixFontSize": "50%",
+         "prefix": "",
+         "prefixFontSize": "50%",
+         "rangeMaps": [
+            {
+               "from": "null",
+               "text": "N/A",
+               "to": "null"
+            }
+         ],
+         "span": 2,
+         "sparkline": {
+            "fillColor": "rgba(31, 118, 189, 0.18)",
+            "full": false,
+            "lineColor": "rgb(31, 120, 193)",
+            "show": false
+         },
+         "tableColumn": "",
+         "targets": [
+            {
+               "expr": "process_uptime_seconds{kubernetes_name=\"$kubernetes_name\", instance=\"$instance\"}",
+               "format": "time_series",
+               "intervalFactor": 2,
+               "legendFormat": "",
+               "refId": "A"
+            }
+         ],
+         "thresholds": "",
+         "title": "uptime",
+         "type": "singlestat",
+         "valueFontSize": "80%",
+         "valueMaps": [
+            {
+               "op": "=",
+               "text": "N/A",
+               "value": "null"
+            }
+         ],
+         "valueName": "current"
+      }
+   ],
+   "refresh": "1m",
+   "rows": [ ],
+   "schemaVersion": 16,
+   "style": "light",
+   "tags": [
+      "P360"
+   ],
+   "templating": {
+      "list": [
+         {
+            "current": {
+               "text": "prior-auth-api",
+               "value": "prior-auth-api"
+            },
+            "hide": 1,
+            "label": "kubernetes_name",
+            "name": "kubernetes_name",
+            "options": [ ],
+            "query": "label_values(jvm_buffer_memory_used_bytes, kubernetes_name)",
+            "refresh": 1,
+            "regex": "",
+            "type": "datasource"
+         },
+         {
+            "allValue": null,
+            "current": {
+               "text": "10.244.11.77:8089",
+               "value": "10.244.11.77:8089"
+            },
+            "datasource": "P360ProdELRCore Prom",
+            "hide": 1,
+            "includeAll": false,
+            "label": "instance",
+            "multi": false,
+            "name": "instance",
+            "options": [ ],
+            "query": "label_values(jvm_buffer_memory_used_bytes{kubernetes_name=\"kubernetes_name\"}, instance)",
+            "refresh": 0,
+            "regex": "",
+            "sort": 0,
+            "tagValuesQuery": "",
+            "tags": [ ],
+            "tagsQuery": "",
+            "type": "query",
+            "useTags": false
+         },
+         {
+            "allValue": null,
+            "current": {
+               "text": "None",
+               "value": "None"
+            },
+            "datasource": "P360ProdELRCore Prom",
+            "hide": 1,
+            "includeAll": false,
+            "label": "HikariCP-Pool",
+            "multi": false,
+            "name": "hikaricp",
+            "options": [ ],
+            "query": "label_values(hikaricp_connections{instance=\"instance\", kubernetes_name=\"kubernetes_name\"}, pool)",
+            "refresh": 0,
+            "regex": "",
+            "sort": 0,
+            "tagValuesQuery": "",
+            "tags": [ ],
+            "tagsQuery": "",
+            "type": "query",
+            "useTags": false
+         },
+         {
+            "allValue": null,
+            "current": {
+               "text": {
+                  "text": "All",
+                  "value": "$__all"
+               },
+               "value": {
+                  "text": "All",
+                  "value": "$__all"
+               }
+            },
+            "datasource": "P360ProdELRCore Prom",
+            "hide": 1,
+            "includeAll": false,
+            "label": "Memory Pool (heap)",
+            "multi": false,
+            "name": "memory_pool_heap",
+            "options": [ ],
+            "query": "label_values(jvm_memory_used_bytes{kubernetes_name=\"kubernetes_name\", instance=\"instance\", area=\"heap\"}, id)",
+            "refresh": 0,
+            "regex": "",
+            "sort": 0,
+            "tagValuesQuery": "",
+            "tags": [ ],
+            "tagsQuery": "",
+            "type": "query",
+            "useTags": false
+         },
+         {
+            "allValue": null,
+            "current": {
+               "text": {
+                  "text": "All",
+                  "value": "$__all"
+               },
+               "value": {
+                  "text": "All",
+                  "value": "$__all"
+               }
+            },
+            "datasource": "P360ProdELRCore Prom",
+            "hide": 1,
+            "includeAll": false,
+            "label": "Memory Pool (non heap)",
+            "multi": false,
+            "name": "memory_pool_nonheap",
+            "options": [ ],
+            "query": "label_values(jvm_memory_used_bytes{kubernetes_name=\"kubernetes_name\", instance=\"instance\", area=\"nonheap\"}, id)",
+            "refresh": 0,
+            "regex": "",
+            "sort": 0,
+            "tagValuesQuery": "",
+            "tags": [ ],
+            "tagsQuery": "",
+            "type": "query",
+            "useTags": false
+         }
+      ]
+   },
+   "time": {
+      "from": "now-5m",
+      "to": "now"
+   },
+   "timepicker": {
+      "refresh_intervals": [
+         "5s",
+         "10s",
+         "30s",
+         "1m",
+         "5m",
+         "15m",
+         "30m",
+         "1h",
+         "2h",
+         "1d"
+      ],
+      "time_options": [
+         "5m",
+         "15m",
+         "1h",
+         "6h",
+         "12h",
+         "24h",
+         "2d",
+         "7d",
+         "30d"
+      ]
+   },
+   "timezone": "browser",
+   "title": "kalai_dashboard_codify",
+   "uid": "e1UEmW9mz",
+   "version": 0
+}
