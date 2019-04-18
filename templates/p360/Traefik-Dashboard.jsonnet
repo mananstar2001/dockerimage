@@ -68,7 +68,7 @@ grafana.dashboard.new(
 )
 .addRow(
   row.new(
-	title='Stats'
+	title='Stats',
     height='275px',
   )
   .addPanel(
