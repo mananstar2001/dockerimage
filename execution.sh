@@ -18,4 +18,4 @@ for filePath in $(find /tmp/templates -name '*.jsonnet'); do
 	fi
 done
 unset IFS; set +f
-sleep 5m
+sleep 2m

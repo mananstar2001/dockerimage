@@ -8,6 +8,8 @@ local graphPanel = grafana.graphPanel;
 
 grafana.dashboard.new(
   'P360-Dashboard',
+  folderId='560',
+  overwrite=false,
   refresh='1m',
   time_from='now-5m',
   uid='gFe4axRZz',
